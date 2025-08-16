@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>Trench Wallet</title>
+    <style>
+        :root {
+            --bg-dark: #0e0c20;
+            --bg-buttons: #29284D;
+            --border-color: #7367F0;
+            --card-bg: #1b1835;
+            --inputs-bg: #282C40;
+            --text-light: #f4f4f4;
+            --accent-purple: #8260ff;
+            --accent-green: #20ff8b;
+            --inputs-color: #8F85F3;
+            --accent-red: #ff4e4e;
+            --border-radius: 4px;
+            --spacing: 10px;
+            --font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background: var(--bg-dark);
+            font-family: var(--font-family);
+            color: var(--text-light);
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(180deg, #181A2A 0%, #2B2D4C 100%);
+        }
+
+        .wallet-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: var(--spacing);
+            width: 338px;
+            /* height: 486px; */
+            height: 530px;
+            margin: auto;
+            box-shadow: 0 0 15px rgba(130, 96, 255, 0.3);
+            box-sizing: border-box;
+        }
+
+        .wallet-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+        }
+
+        .logo {
+            display: flex;
+            font-weight: bold;
+            font-size: 18px;
+            margin-right: auto;
+        }
+
+        .logo img {
+            height: 24px;
+        }
+
+        .jeet-checkbox {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+        }
+
+        .jeet-checkbox input[type="checkbox"] {
+            width: 14px;
+            height: 14px;
+            accent-color: var(--border-color);
+            margin: 0;
+        }
+
+        .buy-options button {
+            flex: 1;
+            background: var(--inputs-bg);
+            color: white;
+            border: none;
+            padding: 6px;
+            border-radius: var(--border-radius);
+            font-family: 'Public Sans', sans-serif;
+            font-size: 11px;
+            font-weight: 400;
+        }
+
+        .presets button {
+            padding: 9px !important;
+        }
+
+        .wallet-selector {
+            background: var(--bg-buttons);
+            color: var(--text-light);
+            border-color: var(--border-color);
+            height: 30px;
+            border-radius: var(--border-radius);
+            width: 130px;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 6px;
+            margin: 0;
+        }
+
+        .options {
+            display: flex;
+            gap: 8px;
+            margin: var(--spacing) 0;
+            border: none;
+            border-top: 1px solid rgba(128, 131, 144, 0.5);
+            border-bottom: 1px solid rgba(128, 131, 144, 0.5);
+        }
+
+        .tab {
+            flex: 1;
+            padding: 0px;
+            background: var(--bg-buttons);
+            border: 1.5px solid;
+            color: var(--text-light);
+            border-color: var(--border-color);
+            border-radius: 6px;
+            color: var(--text-light);
+            font-size: 10px;
+            min-width: 50px;
+            max-width: 50px;
+            height: 20px;
+        }
+
+        .tab.active {
+            background-color: var(--border-color);
+        }
+
+        .tab-select-group {
+            display: flex;
+            gap: 16px;
+            height: 22px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 8px;
+            padding-top: 3px;
+            padding-bottom: 3px;
+            margin-bottom: 6px;
+            align-items: center;
+        }
+
+        .tab-info {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-left: auto;
+        }
+
+        .tab-select {
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            position: relative;
+            padding-bottom: 4px;
+            font-family: 'Public Sans', serif;
+            font-size: 10px;
+            font-weight: 500;
+        }
+
+        .tab-select.active::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: -7px;
+            height: 3px;
+            background: var(--accent-purple);
+        }
+
+        .tab-select.active.red-underline::after {
+            background: var(--accent-red);
+        }
+
+        .wallet-icon {
+            height: 22px;
+            width: 20px;
+        }
+
+        .sell-btn-width {
+            max-width: 70px !important;
+            width: 70px !important;
+            box-sizing: border-box;
+        }
+
+        .entry-value {
+            color: var(--accent-green);
+        }
+
+        .quick-section {
+            padding: var(--spacing);
+            display: flex;
+            flex-direction: column;
+            gap: 5px
+        }
+
+        .quick-section h2 {
+            margin: 0 4px;
+            font-size: 18px;
+            margin-bottom: 10px;
+            font-family: 'Public Sans', sans-serif;
+            font-weight: 400;
+        }
+
+        .quick-section span {
+            font-size: 18px;
+        }
+
+        .input-amount {
+            padding: 5px 17px;
+            font-size: 14px;
+            color: #ffffff;
+            border: 1.5px solid;
+            background-color: var(--inputs-bg);
+            border-color: var(--border-color);
+            border-radius: 6px;
+            margin-top: 4px;
+            font-family: 'Public Sans', sans-serif;
+            max-width: 120px;
+            margin-bottom: 10px;
+            height: 34px
+        }
+
+        .save-btn {
+            padding: 5px 17px;
+            font-size: 14px;
+            background-color: #675DD8;
+            border-radius: var(--border-radius);
+            margin-top: 4px;
+            border: none;
+            font-family: 'Public Sans', sans-serif;
+            max-width: 120px;
+            margin-bottom: 10px;
+            height: 34px;
+
+            span {
+                color: #ffff;
+            }
+        }
+
+        .flex {
+            display: flex;
+        }
+
+        .relative {
+            position: relative;
+        }
+
+        .absolute {
+            position: absolute;
+        }
+
+        .w-50 {
+            width: 50%;
+        }
+
+        .w-100 {
+            width: 100%;
+            max-width: none;
+        }
+
+        .pt-0 {
+            padding-top: 0;
+        }
+
+        .pl-0 {
+            padding-left: 0;
+        }
+
+        .pr-0 {
+            padding-right: 0;
+        }
+
+        .pb-5 {
+            padding-bottom: 5px !important;
+        }
+
+        .font-14 {
+            font-size: 14px !important;
+        }
+
+        .mt-5 {
+            margin-top: 5px !important;
+        }
+
+        .buy-btn,
+        .btn {
+            background: var(--accent-purple);
+            color: white;
+            border: none;
+            border-radius: var(--border-radius);
+            padding: 10px;
+            margin-top: 4px;
+            min-width: 68px;
+            font-family: 'Public Sans', sans-serif;
+            font-weight: 400;
+        }
+
+        .center-text {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .btn {
+            background: var(--accent-red);
+        }
+
+        .border {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .buy-options,
+        .options {
+            display: flex;
+            gap: 14px;
+            margin-top: 10px;
+            padding-bottom: 10px;
+            justify-content: space-between;
+        }
+
+        .options button {
+            flex: 1;
+            background: #A83941;
+            color: white;
+            border: none;
+            padding: 6px;
+            border-radius: var(--border-radius);
+            font-family: 'Public Sans', sans-serif;
+            font-size: 13px;
+            font-weight: 400;
+        }
+
+        .inputs {
+            display: flex;
+            gap: 8px;
+            margin-top: 8px;
+        }
+
+        .span {
+            display: flex;
+            justify-content: space-between;
+        }
+
+
+        .white-70 {
+            display: flex;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 14px !important;
+            font-family: 'Public Sans', sans-serif;
+            line-height: 13px;
+        }
+
+        .white-70 img {
+            margin-left: 4px;
+            width: 15px;
+        }
+
+
+        .inputs input {
+            flex: 1;
+            padding: 8px;
+            color: #ffffff;
+            border: 1.5px solid;
+            background-color: var(--inputs-bg);
+            border-color: var(--inputs-color);
+            border-radius: 6px;
+            font-size: 14px;
+        }
+
+        /* .buttons {
+            display: flex;
+            align-content: center;
+            gap: 14px;
+            justify-content: space-between;
+        } */
+
+        .buttons input {
+            background-color: #2a2742;
+            border-color: var(--inputs-color);
+            box-shadow: 0px 2px 6px rgba(115, 103, 240, 0.3);
+        }
+
+        .settings-icon {
+            width: 18px;
+            height: 18px;
+            margin-left: 8px;
+            cursor: pointer;
+            object-fit: contain;
+        }
+
+        .input-wrapper {
+            position: relative;
+            display: flex;
+            gap: 10px;
+        }
+
+        .input-wrapper .tab-icon {
+            position: absolute;
+            top: 50%;
+            right: 8px;
+            transform: translateY(-50%);
+            width: 18px;
+            height: 18px;
+            pointer-events: none;
+        }
+
+        .preset-info-card {
+            background-color: #694FB80F;
+            border: 1.5px solid;
+            border-color: #2C2B52;
+            border-radius: 10px;
+        }
+
+        .input-wrapper span {
+            width: 14px !important;
+            height: 16px !important;
+        }
+
+        .input-wrapper .absolute {
+            right: 10px;
+            width: auto !important;
+            height: auto !important;
+            top: 45%;
+            transform: translateY(-50%);
+            padding: 3px 6px;
+            background-color: #3D405E;
+            border-radius: 3px;
+            font-size: 14px;
+            font-family: 'Public Sans', sans-serif;
+            color: rgba(255, 255, 255, 0.7)
+        }
+
+        .preset-inputs {
+            background-color: #2a2742;
+            border: 1px solid !important;
+            border-color: var(--inputs-color) !important;
+            display: flex;
+            justify-content: center;
+            column-gap: 10px;
+        }
+
+        .save-icon {
+            width: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="/index-01.html">index-01</a>
+    <div class="wallet-card">
+        <header class="wallet-header">
+            <div class="logo"><img src="assets/logo.png" alt="">logoipsum</div>
+            <img src="assets/home.png" alt="Wallet" class="tab-icon wallet-icon" />
+        </header>
+
+        <div class="tab-select-group">
+            <button class="tab-select active">Buy Settings</button>
+            <button class="tab-select">Sell Settings</button>
+            <div class="tab-info">
+                <label class="jeet-checkbox">
+                    JeetMode
+                    <input type="checkbox" />
+                </label>
+            </div>
+        </div>
+        <section class="quick-section pt-0 pl-0 pr-0">
+            <div class="buy-options border presets">
+                <button> Preset 1 </button>
+                <button> Preset 2 </button>
+                <button> Preset 3 </button>
+            </div>
+        </section>
+
+        <div class="preset-info-card">
+            <section class="quick-section">
+
+                <span>Preset Name</span>
+                <div class="buttons">
+                    <div class="input-wrapper">
+                        <input type="text" placeholder="0" value="Default" class="input-amount w-50" />
+                        <input class="input-amount w-50" style="visibility: hidden;" />
+                    </div>
+                </div>
+
+                <div>
+                    <div class="span">
+                        <span class="white-70">Priority Fee<img src="assets/gas-station.png" alt=""></span>
+                        <span class="white-70">Jito Fee<img src="assets/gas-station.png" alt=""></span>
+                    </div>
+                    <div class="buttons">
+                        <div class="input-wrapper">
+                            <div class="w-50 flex relative">
+                                <input type="text" placeholder="0" class="input-amount w-100" />
+                                <span class="absolute">Sol</span>
+                            </div>
+                            <div class="w-50 flex">
+                                <input type="text" placeholder="0" class="input-amount w-100" />
+                                <span class="absolute">Sol</span>
+                            </div>
+                        </div>
+                        <span class="white-70">Slippage<img src="assets/fall.svg" alt=""></span>
+                        <div class="input-wrapper white-70">
+                            <input type="text" placeholder="0" class="input-amount w-100" />
+                            <span class="absolute">%</span>
+                        </div>
+                    </div>
+                    <span class="center-text font-14">Set Preset Buy Amounts</span>
+                </div>
+                <div class="buy-options mt-5 pb-5">
+                    <button class="preset-inputs"> 0.5 <img src="assets/solana-svg.svg" alt="Solana" class="tab-icon" />
+                    </button>
+                    <button class="preset-inputs"> 1 <img src="assets/solana-svg.svg" alt="Solana" class="tab-icon" />
+                    </button>
+                    <button class="preset-inputs"> 3 <img src="assets/solana-svg.svg" alt="Solana" class="tab-icon" />
+                    </button>
+                    <button class="preset-inputs"> 5 <img src="assets/solana-svg.svg" alt="Solana" class="tab-icon" />
+                    </button>
+                </div>
+                <button class="save-btn w-100">
+                    <div class="center-text">
+                        <img src="assets/device-floppy.png" alt="Save" class="save-icon" />
+                        <span>Save</span>
+                    </div>
+                </button>
+            </section>
+        </div>
+
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extension Settings</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style/styles.css">
+</head>
+<body>
+    <div class="app">
+        <div class="container">
+            <!-- Header -->
+            <div class="header">
+                <div class="header-content">
+                    <div class="header-top">
+                        <h1 class="title">
+                            <img src="assets/images/settings.png" alt="Settings" class="settings-icon">
+                            Extension Settings
+                        </h1>
+                        <div class="connection-status">
+                            <div class="status-dot connected"></div>
+                            <span class="status-text connected">Connected</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Tab Navigation -->
+                <div class="tab-navigation">
+                    <button class="tab-button active" data-tab="presets">
+                        Presets
+                    </button>
+                    <button class="tab-button" data-tab="general">
+                        General
+                    </button>
+                </div>
+            </div>
+
+            <!-- Content Container -->
+            <div class="content-wrapper">
+                <div class="content-container">
+                    <!-- Presets Tab Content -->
+                    <div id="presets-content" class="tab-content active">
+                        <!-- Header with Disconnect Button -->
+                        <div class="presets-header">
+                            <div class="preset-buttons">
+                                <button class="preset-btn active" data-preset="1">Preset 1</button>
+                                <button class="preset-btn" data-preset="2">Preset 2</button>
+                                <button class="preset-btn" data-preset="3">Preset 3</button>
+                            </div>
+                            <button class="disconnect-btn">
+                                Disconnect
+                            </button>
+                        </div>
+
+                        <!-- Preset Name -->
+                        <div class="form-group">
+                            <label class="form-label">Preset Name</label>
+                            <input type="text" class="form-input" value="Default" id="preset-name" maxlength="8">
+                        </div>
+
+                        <!-- Buy Settings Section -->
+                        <div class="settings-section">
+                            <h3 class="section-title">
+                                <div class="status-dot buy"></div>
+                                Buy Settings
+                            </h3>
+                            
+                            <div class="form-group">
+                                <label class="form-label">Slippage %</label>
+                                <input type="text" class="form-input buy-input" placeholder="%" id="buy-slippage">
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label">Priority Fee</label>
+                                    <div class="input-with-icon buy-input">
+                                        <input type="text" class="form-input" id="buy-priority-fee">
+                                        <img src="assets/images/solana-svg.svg" alt="SOL" class="input-icon">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Jito Fee</label>
+                                    <div class="input-with-icon buy-input">
+                                        <input type="text" class="form-input" id="buy-jito-fee">
+                                        <img src="assets/images/solana-svg.svg" alt="SOL" class="input-icon">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Buy Preset Amounts</label>
+                                <div class="preset-grid">
+                                    <div class="preset-row">
+                                        <div class="preset-amount-box buy-preset">
+                                            <input type="text" class="preset-input">
+                                            <img src="assets/images/solana-svg.svg" alt="SOL" class="preset-icon">
+                                        </div>
+                                        <div class="preset-amount-box buy-preset">
+                                            <input type="text" class="preset-input">
+                                            <img src="assets/images/solana-svg.svg" alt="SOL" class="preset-icon">
+                                        </div>
+                                        <div class="preset-amount-box buy-preset">
+                                            <input type="text" class="preset-input">
+                                            <img src="assets/images/solana-svg.svg" alt="SOL" class="preset-icon">
+                                        </div>
+                                        <div class="preset-amount-box buy-preset">
+                                            <input type="text" class="preset-input">
+                                            <img src="assets/images/solana-svg.svg" alt="SOL" class="preset-icon">
+                                        </div>
+                                    </div>
+                                    <div class="preset-row">
+                                        <div class="preset-amount-box buy-preset">
+                                            <input type="text" class="preset-input">
+                                            <img src="assets/images/solana-svg.svg" alt="SOL" class="preset-icon">
+                                        </div>
+                                        <div class="preset-amount-box buy-preset">
+                                            <input type="text" class="preset-input">
+                                            <img src="assets/images/solana-svg.svg" alt="SOL" class="preset-icon">
+                                        </div>
+                                        <div class="preset-amount-box buy-preset">
+                                            <input type="text" class="preset-input">
+                                            <img src="assets/images/solana-svg.svg" alt="SOL" class="preset-icon">
+                                        </div>
+                                        <div class="preset-amount-box buy-preset">
+                                            <input type="text" class="preset-input">
+                                            <img src="assets/images/solana-svg.svg" alt="SOL" class="preset-icon">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Sell Settings Section -->
+                        <div class="settings-section">
+                            <h3 class="section-title">
+                                <div class="status-dot sell"></div>
+                                Sell Settings
+                            </h3>
+                            
+                            <div class="form-group">
+                                <label class="form-label">Slippage %</label>
+                                <input type="text" class="form-input sell-input" placeholder="%" id="sell-slippage">
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label">Priority Fee</label>
+                                    <div class="input-with-icon sell-input">
+                                        <input type="text" class="form-input" id="sell-priority-fee">
+                                        <img src="assets/images/solana-svg.svg" alt="SOL" class="input-icon">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Jito Fee</label>
+                                    <div class="input-with-icon sell-input">
+                                        <input type="text" class="form-input" id="sell-jito-fee">
+                                        <img src="assets/images/solana-svg.svg" alt="SOL" class="input-icon">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Sell Preset Amounts</label>
+                                <div class="preset-grid">
+                                    <div class="preset-row">
+                                        <div class="preset-amount-box sell-preset">
+                                            <input type="text" class="preset-input">
+                                            <div class="preset-percent">%</div>
+                                        </div>
+                                        <div class="preset-amount-box sell-preset">
+                                            <input type="text" class="preset-input">
+                                            <div class="preset-percent">%</div>
+                                        </div>
+                                        <div class="preset-amount-box sell-preset">
+                                            <input type="text" class="preset-input">
+                                            <div class="preset-percent">%</div>
+                                        </div>
+                                        <div class="preset-amount-box sell-preset">
+                                            <input type="text" class="preset-input">
+                                            <div class="preset-percent">%</div>
+                                        </div>
+                                    </div>
+                                    <div class="preset-row">
+                                        <div class="preset-amount-box sell-preset">
+                                            <input type="text" class="preset-input">
+                                            <div class="preset-percent">%</div>
+                                        </div>
+                                        <div class="preset-amount-box sell-preset">
+                                            <input type="text" class="preset-input">
+                                            <div class="preset-percent">%</div>
+                                        </div>
+                                        <div class="preset-amount-box sell-preset">
+                                            <input type="text" class="preset-input">
+                                            <div class="preset-percent">%</div>
+                                        </div>
+                                        <div class="preset-amount-box sell-preset">
+                                            <input type="text" class="preset-input">
+                                            <div class="preset-percent">%</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button class="save-btn">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path>
+                                <polyline points="17,21 17,13 7,13 7,21"></polyline>
+                                <polyline points="7,3 7,8 15,8"></polyline>
+                            </svg>
+                            Save
+                        </button>
+                    </div>
+
+                    <!-- General Tab Content -->
+                    <div id="general-content" class="tab-content">
+                        <div class="settings-section">
+                            <h3 class="section-title">QB Tab Operations</h3>
+                            <div class="toggle-group">
+                                <div class="toggle-item">
+                                    <span class="toggle-label">Stay on current</span>
+                                    <div class="toggle-switch active" data-setting="stayOnCurrent">
+                                        <div class="toggle-slider"></div>
+                                    </div>
+                                </div>
+                                <div class="toggle-item">
+                                    <span class="toggle-label">Open in current</span>
+                                    <div class="toggle-switch" data-setting="openInCurrent">
+                                        <div class="toggle-slider"></div>
+                                    </div>
+                                </div>
+                                <div class="toggle-item">
+                                    <span class="toggle-label">Open new tab</span>
+                                    <div class="toggle-switch" data-setting="openNewTab">
+                                        <div class="toggle-slider"></div>
+                                    </div>
+                                </div>
+                                <div class="toggle-item">
+                                    <span class="toggle-label">Open in BG tab</span>
+                                    <div class="toggle-switch" data-setting="openInBgTab">
+                                        <div class="toggle-slider"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="toggle-group">
+                            <div class="toggle-item">
+                                <span class="toggle-label">Enable Pulse Display</span>
+                                <div class="toggle-switch active" data-setting="displayJeetmode">
+                                    <div class="toggle-slider"></div>
+                                </div>
+                            </div>
+                            <div class="toggle-item">
+                                <span class="toggle-label">Enable QB Buttons</span>
+                                <div class="toggle-switch active" data-setting="enableQbButtons">
+                                    <div class="toggle-slider"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Pulse Panel Name</label>
+                            <input type="text" class="form-input" id="qb-panel-name" style="border-color: #8F85F3;">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Trench Panel Name</label>
+                            <input type="text" class="form-input" id="trench-panel-name" style="border-color: #8F85F3;">
+                        </div>
+
+
+
+                        <button class="save-btn">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path>
+                                <polyline points="17,21 17,13 7,13 7,21"></polyline>
+                                <polyline points="7,3 7,8 15,8"></polyline>
+                            </svg>
+                            Save
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts/script.js"></script>
+</body>
+</html>

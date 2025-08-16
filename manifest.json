@@ -1,0 +1,69 @@
+{
+    "manifest_version": 3,
+    "name": "Jeet Mode",
+    "version": "1.0",
+    "description": "A browser extension for connecting Logois QT API",
+    "action": {
+      "default_popup": "/public/login.html",
+      "default_icon": {
+        "16": "/public/assets/images/corvus-logo.png",
+        "48": "/public/assets/images/corvus-logo-128.png",
+        "128": "/public/assets/images/corvus-logo-128.png"
+      }
+    },
+    "icons": {
+      "16": "/public/assets/images/corvus-logo.png",
+      "48": "/public/assets/images/corvus-logo-128.png",
+      "128": "/public/assets/images/corvus-logo-128.png"
+    },
+    "permissions": [
+      "storage",
+      "activeTab",
+      "tabs",
+      "webNavigation",
+      "webRequest"
+    ],
+    "host_permissions": [
+      "*://*/*",
+      "https://extension.soliz-labs.io/*",
+      "https://photon-sol.tinyastro.io/*"
+    ],
+    "background": {
+      "service_worker": "/background.js"
+    },
+    "content_scripts": [
+      {
+        "matches": ["<all_urls>"],
+        "js": ["/content_script/content.js"],
+        "run_at": "document_idle"
+      },
+      {
+        "matches": ["https://photon-sol.tinyastro.io/*"],
+        "js": ["/content_script/photon.js"]
+      },
+      {
+        "matches": ["https://backup.axiom.trade/*", "https://axiom.trade/*"],
+        "js": ["/content_script/axiom.js", "/content_script/axiom-injector.js"]
+      },
+      {
+        "matches": ["https://backup.axiom.trade/*", "https://axiom.trade/*"],
+        "js": ["/content_script/axiom-blocker.js"],
+        "run_at": "document_start"
+      }
+    ],
+    "web_accessible_resources": [
+      {
+        "resources": [
+          "/content_script/*",
+          "/overrides/*",
+          "/public/*",
+          "/public/assets/*",
+          "/public/assets/images/*",
+          "/public/assets/fonts/*",
+          "/public/Settings.html"
+        ],
+        "matches": ["<all_urls>"]
+      }
+    ]
+  }
+  

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <title>Trench Wallet</title>
+    <style>
+        :root {
+            --border-radius: 4px;
+            --spacing: 10px;
+            --font-family: 'Segoe UI', sans-serif;
+        }
+
+        * {
+            transition: all 150ms linear;
+        }
+
+        body {
+            background: var(--bg-dark);
+            font-family: var(--font-family);
+            color: var(--text-light);
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(180deg, #181A2A 0%, #2B2D4C 100%);
+        }
+
+        .trench-card {
+            background: none;
+            border-radius: 6px;
+            overflow: hidden;
+            padding: var(--spacing);
+            width: 282px;
+            /* height: 486px; */
+            height: 460px;
+            margin: auto;
+            box-sizing: border-box;
+            /* Removed box-shadow or extra background */
+        }
+
+        .gradient-bg {
+            background: linear-gradient(180deg, #181A2A 0%, #2B2D4C 100%);
+        }
+
+        .login-container {
+            margin: 0 auto;
+    
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            box-sizing: border-box;
+            font-family: 'Public Sans', sans-serif;
+            color: white;
+        }
+
+        .login-container .input-wrapper {
+            display: flex;
+            width: 100%;
+        }
+
+        .logo-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+
+        .logo-text {
+            color: #fff;
+            opacity: 1;
+            font-size: 36px;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .login-instruction {
+            padding-top: 40px;
+            font-size: 14px;
+            text-align: center;
+            margin-bottom: -50;
+            position: relative;
+            top: -20px;
+        }
+
+        .api-input {
+            width: 100%;
+            padding: 10px 12px;
+            border: 2px solid #7d4cff;
+            border-radius: 8px;
+            background-color: transparent;
+            color: white;
+            font-size: 14px;
+            margin-bottom: 0px;
+            position: relative;
+            top: -20px;
+        }
+
+        .connect-btn {
+            background-color: #7d4cff;
+            color: white;
+            font-size: 16px;
+            padding: 10px;
+            width: 100%;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0px 2px 6px rgba(115, 103, 240, 0.3);
+            cursor: pointer;
+            margin-top: -2px;
+        }
+
+        .connect-btn:hover {
+            background-color: #7367F0;
+        }
+
+        .logo-svg {
+            width: 100px;
+            height: 100px;
+        }
+
+        .soliz-move-down {
+            position: relative;
+            top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="trench-card">
+        <div class="login-container">
+            <div class="logo-wrapper">
+                <img src="assets/images/corvus-logo-128.png" alt="Logo" class="logo-svg soliz-move-down" />
+                <h1 class="logo-text soliz-move-down">Soliz</h1>
+            </div>
+            <p class="login-instruction">Enter your TrenchPanel API</p>
+
+            <div class="input-wrapper">
+                <input type="password" placeholder="***********************************" class="api-input" />
+            </div>
+            <button class="connect-btn" onclick="window.location.href='login-disconnect.html'">Connect</button>
+        </div>
+    </div>
+
+    </div>
+</body>
+
+<script src="../content_script/content.js"></script>
+
+</html>
