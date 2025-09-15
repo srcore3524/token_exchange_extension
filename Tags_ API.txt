@@ -1,6 +1,6 @@
 https://extension.corvus-labs.io/authentication
 https://extension.corvus-labs.io/swap
-https://extension.corvus-labs.io/swap-1
+https://extension.corvus-labs.io/swap-dev
 https://extension.corvus-labs.io/positions
 https://extension.corvus-labs.io/presets
 https://extension.corvus-labs.io/tokens <--For consolidation/distribute
